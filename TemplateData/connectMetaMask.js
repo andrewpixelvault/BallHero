@@ -10,7 +10,8 @@ async function connectMetaMask() {
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             SendMessage('WalletManager', 'ReceiveAccount', accounts[0]);
         } catch (error) {
-            console.error('User denied account access');
+            console.error('Failed to access user account:', error);
+            console.log(error); 
         }
     } else {
         console.error('MetaMask is not installed!');
