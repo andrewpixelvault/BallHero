@@ -47,7 +47,7 @@ async function fetchAllNFTsAndSendToUnity() {
 
 
 ethereum.on('accountsChanged', (accounts) => {
-    SendMessage('WalletConnetButton', 'ReceiveAccount', accounts[0]);
+    SendMessage('WalletManager', 'ReceiveAccount', accounts[0]);
 });
 
 ethereum.on('chainChanged', (_chainId) => window.location.reload());
