@@ -47,7 +47,11 @@ async function fetchAllNFTsAndSendToUnity() {
 
 
 ethereum.on('accountsChanged', (accounts) => {
-    SendMessage('WalletManager', 'ReceiveAccount', accounts[0]);
+    if (accounts.length === 0) {
+        console.log('Please connect to MetaMask.');
+    } else {
+        SendMessage('WalletManager', 'ReceiveAccount', accounts[0]);
+    }
 });
 
 ethereum.on('chainChanged', (_chainId) => window.location.reload());
