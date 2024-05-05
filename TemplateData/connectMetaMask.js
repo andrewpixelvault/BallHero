@@ -10,7 +10,7 @@ async function connectMetaMask() {
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             if (accounts.length > 0) {
                 console.log(accounts[0]);
-                SendMessage('WalletManager', 'ReceiveAccount', accounts[0]);
+                MyGameInstance.SendMessage('WalletManager', 'ReceiveAccount', accounts[0]);
             } else {
                 console.log("No accounts received.");
             }
@@ -45,7 +45,7 @@ async function fetchAllNFTsAndSendToUnity() {
             nftIds.push(tokenId.toString());
         }
 
-        SendMessage('WalletManager', 'ReceiveNFTIds', JSON.stringify(nftIds));
+        MyGameInstance.SendMessage('WalletManager', 'ReceiveNFTIds', JSON.stringify(nftIds));
     } catch (error) {
         console.error('Failed to fetch NFTs or send data to Unity:', error);
     }
@@ -58,7 +58,7 @@ ethereum.on('accountsChanged', (accounts) => {
             console.log('Please connect to MetaMask.');
         } else {
             console.log(accounts[0]);
-            SendMessage('WalletManager', 'ReceiveAccount', accounts[0]);
+            MyGameInstance.SendMessage('WalletManager', 'ReceiveAccount', accounts[0]);
         }
 
 });
