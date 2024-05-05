@@ -1,5 +1,5 @@
 async function loadABI() {
-    const response = await fetch('MetaHeroABI.json');
+    const response = await fetch('TemplateData/MetaHeroABI.json');
     const abi = await response.json();
     return abi;
 }
