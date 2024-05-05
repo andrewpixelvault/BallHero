@@ -9,7 +9,7 @@ async function connectMetaMask() {
         try {
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             if (accounts.length > 0) {
-                console.log("accounts[0]");
+                console.log(accounts[0]);
                 SendMessage('WalletManager', 'ReceiveAccount', accounts[0]);
             } else {
                 console.log("No accounts received.");
@@ -57,7 +57,7 @@ ethereum.on('accountsChanged', (accounts) => {
         if (accounts.length === 0) {
             console.log('Please connect to MetaMask.');
         } else {
-            console.log("accounts[0]");
+            console.log(accounts[0]);
             SendMessage('WalletManager', 'ReceiveAccount', accounts[0]);
         }
 
