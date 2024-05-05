@@ -44,8 +44,8 @@ async function fetchAllNFTsAndSendToUnity() {
             const tokenId = await contract.tokenOfOwnerByIndex(accountAddress, i);
             nftIds.push(tokenId.toString());
         }
-
-        MyGameInstance.SendMessage('WalletManager', 'ReceiveNFTIds', JSON.stringify(nftIds));
+        const nftData = { nftIds: nftIds.map(id => parseInt(id)) };
+        MyGameInstance.SendMessage('WalletManager', 'ReceiveNFTIds', JSON.stringify(nftData));
     } catch (error) {
         console.error('Failed to fetch NFTs or send data to Unity:', error);
     }
