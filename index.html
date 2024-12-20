@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | BallHero</title>
+    <title>Unity WebGL Player | WolfRaft</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">BallHero</div>
+        <div id="unity-build-title">WolfRaft</div>
       </div>
     </div>
     <script>
@@ -57,15 +57,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/BallHero.loader.js";
+      var loaderUrl = buildUrl + "/WolfRaftDemo_WebGL.loader.js";
       var config = {
-        dataUrl: buildUrl + "/BallHero.data",
-        frameworkUrl: buildUrl + "/BallHero.framework.js",
-        codeUrl: buildUrl + "/BallHero.wasm",
+        dataUrl: buildUrl + "/WolfRaftDemo_WebGL.data.br",
+        frameworkUrl: buildUrl + "/WolfRaftDemo_WebGL.framework.js.br",
+        codeUrl: buildUrl + "/WolfRaftDemo_WebGL.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "BallHero",
-        productVersion: "1.0",
+        companyName: "PixelVault",
+        productName: "WolfRaft",
+        productVersion: "0.1.2",
         showBanner: unityShowBanner,
       };
 
@@ -99,14 +99,13 @@
       }
 
       loadingBar.style.display = "block";
-      var MyGameInstance = null;
+
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-MyGameInstance = unityInstance;
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
@@ -117,9 +116,7 @@ MyGameInstance = unityInstance;
             };
 
       document.body.appendChild(script);
+
     </script>
-    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
-        type="application/javascript"></script>
-    <script src="TemplateData/connectMetaMask.js"></script>
   </body>
 </html>
